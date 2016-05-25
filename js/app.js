@@ -48,8 +48,8 @@ Player.prototype.update = function(dt) {
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
-    this.x = this.x * dt;
-    this.y = this.y * dt;
+    this.x * dt;
+    this.y * dt;
 };
 
 Player.prototype.render = function() {
@@ -66,12 +66,25 @@ Player.prototype.render = function() {
 // a handleInput() method.
 
 var allEnemies = [];
+// create array of object instances
 
+var myenemy = new Enemy(300,100);
+var myenemy2 = new Enemy(400,100);
+
+var myenemy3 = new Enemy(200,200);
+
+var objectinst = [myenemy, myenemy2,myenemy3];
 // Now instantiate your objects.
-var myenemy = new Enemy(1,2);
-var myenemy2 = new Enemy(1,3);
 
-allEnemies.push(myenemy); 
+alert(objectinst[0]);
+
+for(var i=0; i <objectinst.length; i++)
+{
+
+
+allEnemies.push(objectinst[i]); 
+
+}
 
 
 
@@ -79,8 +92,8 @@ allEnemies.push(myenemy);
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
 
-var player = new Player(12,2);
-var player2 = new Player(1,3);
+var player = new Player(10,400);
+
 
 
 
