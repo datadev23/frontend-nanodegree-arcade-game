@@ -48,8 +48,8 @@ Player.prototype.update = function(dt) {
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
-    this.x*dt;
-    this.y*dt;
+    this.x = this.x * dt;
+    this.y = this.y * dt;
 };
 
 Player.prototype.render = function() {
