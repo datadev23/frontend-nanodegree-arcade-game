@@ -87,12 +87,33 @@ allEnemies.push(objectinst[i]);
 }
 
 
+Player.prototype.handleInput = function(keys) {
+
+switch(keys) {
+
+    case 'left':
+    this.x = this.x - 10;
+    break;
+       case 'up':
+    this.y = this.y - 10;
+    break;
+       case 'right':
+    this.x = this.x + 10;
+    break;
+       case 'down':
+     this.y = this.y + 10;
+    break;
+}
+
+}
+
 
 
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
 
 var player = new Player(10,400);
+
 
 
 
