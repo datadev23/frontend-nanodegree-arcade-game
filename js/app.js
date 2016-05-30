@@ -69,6 +69,23 @@ if(this.x > 400) {
    this.x = 400;
 }
 
+
+
+if(this.y < 0) {
+   this.y = 0;
+}
+
+if(this.y > 400) {
+   this.y = 400;
+}
+
+
+
+
+
+
+
+
 else {
     console.log("no collison");
 }
