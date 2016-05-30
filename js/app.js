@@ -19,7 +19,7 @@ Enemy.prototype.update = function(dt) {
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
-    this.x*dt;
+    this.x = this.x + 1;
     this.y*dt;
 };
 
@@ -53,9 +53,30 @@ Player.prototype.update = function(dt) {
 };
 
 Player.prototype.render = function() {
+
+    console.log("screenx :" + this.x);
+      console.log("screeny :" + this.y);
+    console.log("playerx :" + player.x);
+      console.log("playery :" + player.x);
+
+if(this.x < 0) {
+
+    console.log("player and side collision");
+    this.x = 0;
+}
+
+if(this.x > 400) {
+   this.x = 400;
+}
+
+else {
+    console.log("no collison");
+}
+
+
+
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
-
 
 
 
@@ -68,10 +89,10 @@ Player.prototype.render = function() {
 var allEnemies = [];
 // create array of object instances
 
-var myenemy = new Enemy(300,100);
-var myenemy2 = new Enemy(400,100);
+var myenemy = new Enemy(100,100);
+var myenemy2 = new Enemy(100,250);
 
-var myenemy3 = new Enemy(200,200);
+var myenemy3 = new Enemy(100,350);
 
 var objectinst = [myenemy, myenemy2,myenemy3];
 // Now instantiate your objects.
@@ -92,7 +113,7 @@ Player.prototype.handleInput = function(keys) {
 switch(keys) {
 
     case 'left':
-    this.x = this.x - 10;
+    this.x =  (this.x - 10);
     break;
        case 'up':
     this.y = this.y - 10;
@@ -113,6 +134,8 @@ switch(keys) {
 // Place the player object in a variable called player
 
 var player = new Player(10,400);
+
+// 0 will be the edge of the canvas
 
 
 
