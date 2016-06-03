@@ -19,7 +19,7 @@ Enemy.prototype.update = function(dt) {
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
-    this.x = this.x + 1;
+    //this.x = this.x + 1;
     this.y*dt;
 };
 
@@ -87,7 +87,7 @@ if(this.y > 390) {
 
 
 else {
-    console.log("no collison");
+    console.log("no side hit detection");
 }
 
 
@@ -105,11 +105,11 @@ else {
 
 var allEnemies = [];
 // create array of object instances
+var player = new Player(10,400);
+var myenemy = new Enemy(100,50);
+var myenemy2 = new Enemy(100,150);
 
-var myenemy = new Enemy(100,100);
-var myenemy2 = new Enemy(100,250);
-
-var myenemy3 = new Enemy(100,350);
+var myenemy3 = new Enemy(100,250);
 
 var objectinst = [myenemy, myenemy2,myenemy3];
 // Now instantiate your objects.
@@ -120,7 +120,22 @@ for(var i=0; i <objectinst.length; i++)
 {
 
 
+alert(objectinst[i].y);
+
 allEnemies.push(objectinst[i]); 
+
+if(this.x > objectinst[i].x + 0 && this.x < objectinst[i].x + 200) {
+    console.log("collision detected");
+}
+else {
+
+    console.log("player has not hit enemey");
+}
+/*
+alert(((this.x > objectinst[i].x + 0 && this.x < objectinst[i].x + 400) 
+    && (this.y > objectinst[i].y + 0 && this.y < objectisnt[i].y + 400)));
+*/
+
 
 }
 
@@ -150,7 +165,7 @@ switch(keys) {
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
 
-var player = new Player(10,400);
+
 
 // 0 will be the edge of the canvas
 
