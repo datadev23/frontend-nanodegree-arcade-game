@@ -57,7 +57,7 @@ Player.prototype.render = function() {
     console.log("screenx :" + this.x);
       console.log("screeny :" + this.y);
     console.log("playerx :" + player.x);
-      console.log("playery :" + player.x);
+      console.log("playery :" + player.y);
 
 if(this.x < 0) {
 
@@ -65,8 +65,9 @@ if(this.x < 0) {
     this.x = 0;
 }
 
-if(this.x > 400) {
-   this.x = 400;
+if(this.x > canvas.width - 105) {
+    alert("player side collison ")
+   this.x = canvas.width - 105;
 }
 
 
@@ -75,8 +76,9 @@ if(this.y < 0) {
    this.y = 0;
 }
 
-if(this.y > 390) {
-   this.y = 390;
+if(this.y > canvas.height - 210) {
+   this.y = canvas.height - 210;
+   alert("hit detection for y");
 }
 
 
@@ -123,9 +125,15 @@ for(var i=0; i <objectinst.length; i++)
 alert(objectinst[i].y);
 
 allEnemies.push(objectinst[i]); 
-
+/*
 if(this.x > objectinst[i].x + 0 && this.x < objectinst[i].x + 200) {
     console.log("collision detected");
+}
+*/
+
+if(this.x + 100 && this.y + 100 == this.y + 100 && myenemy.y + 100 ) {
+alert("enemy has been hit");
+
 }
 else {
 
@@ -185,6 +193,7 @@ document.addEventListener('keydown', function(e) {
 
     player.handleInput(allowedKeys[e.keyCode]);
 });
+
 
 
 
