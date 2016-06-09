@@ -62,12 +62,12 @@ Player.prototype.render = function() {
 
 if(this.x < 0) {
 
-    console.log("player and side collision");
+    console.log("player and side collision x direction");
     this.x = 0;
 }
 
 if(this.x > canvas.width - 105) {
-    alert("player side collison ")
+    alert("player side collison x direction ");
    this.x = canvas.width - 105;
 }
 
@@ -75,11 +75,12 @@ if(this.x > canvas.width - 105) {
 
 if(this.y < 0) {
    this.y = 0;
+   alert("hit detection for y top");
 }
 
 if(this.y > canvas.height - 210) {
    this.y = canvas.height - 210;
-   alert("hit detection for y");
+   alert("hit detection for y top");
 }
 
 
@@ -132,7 +133,7 @@ if(this.x > objectinst[i].x + 0 && this.x < objectinst[i].x + 200) {
 }
 */
 enemy = allEnemies[i];
-if(this.x >= myenemy.x + 0 && this.x < myenemy.x + 100 && this.y >= myenemy.y + 0 && this.y < myenemy.y) {
+if(this.x >= enemy.x + 0 && this.x < enemy.x + 100 && this.y >= enemy.y + 0 && this.y < enemy.y) {
 alert("enemy has been hit");
 
 }
