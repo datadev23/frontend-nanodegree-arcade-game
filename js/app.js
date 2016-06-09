@@ -20,6 +20,7 @@ Enemy.prototype.update = function(dt) {
     // which will ensure the game runs at the same speed for
     // all computers.
     //this.x = this.x + 1;
+    this.x*dt;
     this.y*dt;
 };
 
@@ -130,8 +131,8 @@ if(this.x > objectinst[i].x + 0 && this.x < objectinst[i].x + 200) {
     console.log("collision detected");
 }
 */
-
-if(this.x + 100 && this.y + 100 == this.y + 100 && myenemy.y + 100 ) {
+enemy = allEnemies[i];
+if(this.x >= myenemy.x + 0 && this.x < myenemy.x + 100 && this.y >= myenemy.y + 0 && this.y < myenemy.y) {
 alert("enemy has been hit");
 
 }
