@@ -22,8 +22,8 @@ Enemy.prototype.update = function(dt) {
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
-    //this.x = this.x + 1;
-    this.x*dt;
+    this.x = this.x + 1;
+    //this.x*dt;
     this.y*dt;
 };
 
@@ -46,6 +46,11 @@ var Player = function(x,y,speed) {
     this.y = y;
 
 };
+
+var Gems = function() {
+
+    this.sprite = 'images/char-boy.png';
+}
 
 
 Player.prototype.update = function(dt) {
@@ -214,6 +219,14 @@ var checkCollisions = function() {
         console.log("player has not hit enemey");
         
     }
+
+}
+
+var scoreUpdate = function() {
+
+    ctx.font = "20px Ariel";
+    ctx.fillText("Player score" + 20, 20,30);
+    ctx.fillText("Health" + 20, 200,30);
 
 }
 
