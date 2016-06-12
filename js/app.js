@@ -1,4 +1,5 @@
 // Enemies our player must avoid
+var player;
 var Enemy = function(x,y,speed) {
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
@@ -6,6 +7,8 @@ var Enemy = function(x,y,speed) {
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
     this.sprite = 'images/enemy-bug.png';
+
+    alert(this.sprite);
 
     // set the speed of the enemy
     this.speed = speed;
@@ -55,8 +58,7 @@ Player.prototype.update = function(dt) {
 
 Player.prototype.render = function() {
 
-    console.log("screenx :" + this.x);
-      console.log("screeny :" + this.y);
+
     console.log("playerx :" + player.x);
       console.log("playery :" + player.y);
 
@@ -66,21 +68,21 @@ if(this.x < 0) {
     this.x = 0;
 }
 
-if(this.x > canvas.width - 105) {
-    alert("player side collison x direction ");
-   this.x = canvas.width - 105;
+if(this.x > canvas.width - 110) {
+    console.log("player side collison x direction ");
+   this.x = canvas.width - 110;
 }
 
 
 
 if(this.y < 0) {
    this.y = 0;
-   alert("hit detection for y top");
+   console.log("hit detection for y top");
 }
 
-if(this.y > canvas.height - 210) {
+if(this.y >= canvas.height - 210) {
    this.y = canvas.height - 210;
-   alert("hit detection for y top");
+   console.log("hit detection for y top");
 }
 
 
@@ -109,7 +111,7 @@ else {
 
 var allEnemies = [];
 // create array of object instances
-var player = new Player(10,400);
+player = new Player(10,400);
 var myenemy = new Enemy(100,50);
 var myenemy2 = new Enemy(100,150);
 
@@ -123,8 +125,8 @@ alert(objectinst[0]);
 for(var i=0; i <objectinst.length; i++)
 {
 
-
-alert(objectinst[i].y);
+alert("enemy x " + objectinst[i].x);
+alert("enemy y "+objectinst[i].y);
 
 allEnemies.push(objectinst[i]); 
 /*
@@ -133,14 +135,7 @@ if(this.x > objectinst[i].x + 0 && this.x < objectinst[i].x + 200) {
 }
 */
 enemy = allEnemies[i];
-if(this.x >= enemy.x + 0 && this.x < enemy.x + 100 && this.y >= enemy.y + 0 && this.y < enemy.y) {
-alert("enemy has been hit");
 
-}
-else {
-
-    console.log("player has not hit enemey");
-}
 /*
 alert(((this.x > objectinst[i].x + 0 && this.x < objectinst[i].x + 400) 
     && (this.y > objectinst[i].y + 0 && this.y < objectisnt[i].y + 400)));
@@ -196,6 +191,31 @@ document.addEventListener('keydown', function(e) {
     player.handleInput(allowedKeys[e.keyCode]);
 });
 
+
+var checkCollisions = function() {
+
+  
+
+    console.log("x value of the player" + player.x);
+     console.log("y value of the player" + player.y);
+
+     console.log("x value of the enemy" + enemy.x);
+     console.log("y value of the enemy" + enemy.y);
+
+   
+ 
+    if(player.x >= enemy.x + 0 && player.x < enemy.x + 50 && player.y >= enemy.y + 0 && player.y < enemy.y + 50) {
+     
+    console.log("enemy has been hit");
+
+    }
+    else {
+
+        console.log("player has not hit enemey");
+        
+    }
+
+}
 
 
 
