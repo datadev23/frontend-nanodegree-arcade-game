@@ -1,5 +1,6 @@
 // Enemies our player must avoid
 var player;
+var gem;
 var Enemy = function(x,y,speed) {
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
@@ -7,8 +8,6 @@ var Enemy = function(x,y,speed) {
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
     this.sprite = 'images/enemy-bug.png';
-
-    alert(this.sprite);
 
     // set the speed of the enemy
     this.speed = speed;
@@ -47,10 +46,36 @@ var Player = function(x,y,speed) {
 
 };
 
-var Gems = function() {
+var Gems = function(x,y,color) {
 
-    this.sprite = 'images/char-boy.png';
+    switch(color) {
+
+      case "orange" :
+      this.sprite = 'images/gem-orange.png';
+      break;
+      case "green" :
+      this.sprite = 'images/gem-green.png';
+      break;
+      case "blue" :
+      this.sprite = 'images/gem-blue.png';
+      break;
+
+
+
+    }
+
+    
+      this.x = x;
+    this.y = y;
 }
+
+Gems.prototype.render = function() {
+
+    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+
+    }
+
+
 
 
 Player.prototype.update = function(dt) {
@@ -115,8 +140,13 @@ else {
 // a handleInput() method.
 
 var allEnemies = [];
+// create an array to store the gems
+var allGems = [];
 // create array of object instances
 player = new Player(10,400);
+gem = new Gems(10,50,"green");
+gem2 = new Gems(200,100,"orange");
+gem3 = new Gems(300,200,"blue");
 var myenemy = new Enemy(100,50);
 var myenemy2 = new Enemy(100,150);
 
@@ -125,7 +155,15 @@ var myenemy3 = new Enemy(100,250);
 var objectinst = [myenemy, myenemy2,myenemy3];
 // Now instantiate your objects.
 
-alert(objectinst[0]);
+var gemitems = [gem,gem2,gem3];
+
+//alert(objectinst[0]);
+for(var i=0; i <gemitems.length; i++) {
+
+allGems.push(gemitems[i]);
+
+}
+
 
 for(var i=0; i <objectinst.length; i++)
 {
@@ -226,7 +264,8 @@ var scoreUpdate = function() {
 
     ctx.font = "20px Ariel";
     ctx.fillText("Player score" + 20, 20,30);
-    ctx.fillText("Health" + 20, 200,30);
+     ctx.fillText("Lives score" + 20, 200,30);
+    ctx.fillText("Health" + 20, 400,30);
 
 }
 
