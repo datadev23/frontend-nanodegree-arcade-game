@@ -154,7 +154,7 @@ Gems.prototype.render = function() {
 
       switch(item) {
       case "key" :
-       this.sprite = 'images/gem-blue.png';
+       this.sprite = 'images/key.png';
       break;
         case "rock" :
        this.sprite = 'images/rock.png';
@@ -163,13 +163,19 @@ Gems.prototype.render = function() {
 
       }
 
+        this.x = x;
+    this.y = y;
+
+    }
+
+    Items.prototype.render = function() {
+
+    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+
     }
 
 
-    Items.prototype.render = function() {  
 
-         ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
-    }
 
 
 
@@ -318,7 +324,7 @@ var checkCollisions = function() {
 var scoreUpdate = function() {
 
     ctx.font = "20px Ariel";
-    ctx.fillText("Player score  " + player.getScore(), 20,30);
+    ctx.strokeText("Player score  " + player.getScore(), 20,30);
      ctx.fillText("Lives score" + 20, 200,30);
     ctx.fillText("Health" + 20, 400,30);
 
