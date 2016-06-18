@@ -156,12 +156,17 @@ var Engine = (function(global) {
              allGems.forEach(function(gems) {
             gems.render();
         });
+
+            allItems.forEach(function(items) {
+            items.render();
+        });
 /*
 Loop through all the objects within the gem allgems array and 
 then call the render function. 
 */
         player.render();
         gem.render();
+        items.render();
 
     }
 
@@ -185,7 +190,8 @@ then call the render function.
         'images/char-boy.png',
          'images/gem-orange.png',
          'images/gem-green.png',
-         'images/gem-blue.png'
+         'images/gem-blue.png',
+         'images/key.png'
         
     ]);
     Resources.onReady(init);

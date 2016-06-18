@@ -1,6 +1,7 @@
 // Enemies our player must avoid
 var player;
 var gem;
+var score = 0;
 var Enemy = function(x,y,speed) {
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
@@ -13,6 +14,7 @@ var Enemy = function(x,y,speed) {
     this.speed = speed;
     this.x = x
     this.y = y;
+   
 };
 
 // Update the enemy's position, required method for game
@@ -43,37 +45,9 @@ var Player = function(x,y,speed) {
     this.speed = speed;
     this.x = x
     this.y = y;
-
+    
 };
 
-var Gems = function(x,y,color) {
-
-    switch(color) {
-
-      case "orange" :
-      this.sprite = 'images/gem-orange.png';
-      break;
-      case "green" :
-      this.sprite = 'images/gem-green.png';
-      break;
-      case "blue" :
-      this.sprite = 'images/gem-blue.png';
-      break;
-
-
-
-    }
-
-    
-      this.x = x;
-    this.y = y;
-}
-
-Gems.prototype.render = function() {
-
-    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
-
-    }
 
 
 
@@ -85,6 +59,20 @@ Player.prototype.update = function(dt) {
     this.x * dt;
     this.y * dt;
 };
+
+Player.prototype.setScore = function(sco) {
+
+score = sco;
+
+}
+
+Player.prototype.getScore = function() {
+  return score;
+}
+
+
+
+
 
 Player.prototype.render = function() {
 
@@ -132,6 +120,57 @@ else {
 };
 
 
+var Gems = function(x,y,color) {
+
+    switch(color) {
+
+      case "orange" :
+      this.sprite = 'images/gem-orange.png';
+      break;
+      case "green" :
+      this.sprite = 'images/gem-green.png';
+      break;
+      case "blue" :
+      this.sprite = 'images/gem-blue.png';
+      break;
+
+
+
+    }
+
+    
+      this.x = x;
+    this.y = y;
+}
+
+Gems.prototype.render = function() {
+
+    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+
+    }
+
+
+    var Items = function(x,y,item) {
+
+      switch(item) {
+      case "key" :
+       this.sprite = 'images/gem-blue.png';
+      break;
+        case "rock" :
+       this.sprite = 'images/rock.png';
+      break;
+
+
+      }
+
+    }
+
+
+    Items.prototype.render = function() {  
+
+         ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+    }
+
 
 
 
@@ -143,19 +182,34 @@ var allEnemies = [];
 // create an array to store the gems
 var allGems = [];
 // create array of object instances
+var allItems = [];
+
 player = new Player(10,400);
 gem = new Gems(10,50,"green");
 gem2 = new Gems(200,100,"orange");
 gem3 = new Gems(300,200,"blue");
 var myenemy = new Enemy(100,50);
 var myenemy2 = new Enemy(100,150);
-
 var myenemy3 = new Enemy(100,250);
 
 var objectinst = [myenemy, myenemy2,myenemy3];
 // Now instantiate your objects.
-
+items = new Items(100,300, "key");
+var gameitems = [items];
 var gemitems = [gem,gem2,gem3];
+
+// set the score
+
+
+
+alert("return a score" + player.setScore(25));
+
+
+for(var i=0; i<gameitems.length; i++) {
+
+allItems.push(gameitems[i]);
+
+}
 
 //alert(objectinst[0]);
 for(var i=0; i <gemitems.length; i++) {
@@ -197,6 +251,7 @@ switch(keys) {
     break;
        case 'up':
     this.y = this.y - 10;
+    score += 20;
     break;
        case 'right':
     this.x = this.x + 10;
@@ -263,7 +318,7 @@ var checkCollisions = function() {
 var scoreUpdate = function() {
 
     ctx.font = "20px Ariel";
-    ctx.fillText("Player score" + 20, 20,30);
+    ctx.fillText("Player score  " + player.getScore(), 20,30);
      ctx.fillText("Lives score" + 20, 200,30);
     ctx.fillText("Health" + 20, 400,30);
 
