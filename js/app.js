@@ -1,4 +1,5 @@
 // Enemies our player must avoid
+
 var player;
 var gem;
 var score = 0;
@@ -79,6 +80,7 @@ Player.prototype.render = function() {
 
     console.log("playerx :" + player.x);
       console.log("playery :" + player.y);
+      console.log("a sandwhich has been detected");
 
 if(this.x < 0) {
 
@@ -118,6 +120,7 @@ else {
 
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
+
 
 
 var Gems = function(x,y,color) {
