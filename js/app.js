@@ -24,7 +24,7 @@ Enemy.prototype.update = function(dt) {
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
-    this.x = this.x + 1;
+   // this.x = this.x + 1;
     //this.x*dt;
     this.y*dt;
 };
@@ -201,7 +201,7 @@ var myenemy = new Enemy(100,50);
 var myenemy2 = new Enemy(100,150);
 var myenemy3 = new Enemy(100,250);
 
-var objectinst = [myenemy, myenemy2,myenemy3];
+
 // Now instantiate your objects.
 items = new Items(100,300, "key");
 var gameitems = [items];
@@ -228,27 +228,6 @@ allGems.push(gemitems[i]);
 }
 
 
-for(var i=0; i <objectinst.length; i++)
-{
-
-alert("enemy x " + objectinst[i].x);
-alert("enemy y "+objectinst[i].y);
-
-allEnemies.push(objectinst[i]); 
-/*
-if(this.x > objectinst[i].x + 0 && this.x < objectinst[i].x + 200) {
-    console.log("collision detected");
-}
-*/
-enemy = allEnemies[i];
-
-/*
-alert(((this.x > objectinst[i].x + 0 && this.x < objectinst[i].x + 400) 
-    && (this.y > objectinst[i].y + 0 && this.y < objectisnt[i].y + 400)));
-*/
-
-
-}
 
 
 Player.prototype.handleInput = function(keys) {
@@ -301,17 +280,33 @@ document.addEventListener('keydown', function(e) {
 
 var checkCollisions = function() {
 
-  
-
-    console.log("x value of the player" + player.x);
+   console.log("x value of the player" + player.x);
      console.log("y value of the player" + player.y);
 
-     console.log("x value of the enemy" + enemy.x);
-     console.log("y value of the enemy" + enemy.y);
+  var objectinst = [myenemy, myenemy2,myenemy3];
+for(var i=0; i <objectinst.length; i++)
+{
 
-   
- 
-    if(player.x >= enemy.x + 0 && player.x < enemy.x + 50 && player.y >= enemy.y + 0 && player.y < enemy.y + 50) {
+
+
+allEnemies.push(objectinst[i]); 
+/*
+if(this.x > objectinst[i].x + 0 && this.x < objectinst[i].x + 200) {
+    console.log("collision detected");
+}
+*/
+enemy = allEnemies[i];
+
+//alert(enemy);
+
+/*
+alert(((this.x > objectinst[i].x + 0 && this.x < objectinst[i].x + 400) 
+    && (this.y > objectinst[i].y + 0 && this.y < objectisnt[i].y + 400)));
+
+*/
+
+
+   if(player.x >= enemy.x + 0 && player.x < enemy.x + 50 && player.y >= enemy.y + 0 && player.y < enemy.y + 50) {
      
     console.log("enemy has been hit");
 
@@ -321,6 +316,22 @@ var checkCollisions = function() {
         console.log("player has not hit enemey");
         
     }
+
+  
+
+}
+
+     //alert("x value of the enemy" + enemy.x);
+    // alert("y value of the enemy" + enemy.y);
+
+
+   
+
+
+
+   
+ 
+ 
 
 }
 
