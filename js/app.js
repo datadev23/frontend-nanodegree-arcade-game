@@ -205,13 +205,13 @@ var myenemy3 = new Enemy(100,250);
 // Now instantiate your objects.
 items = new Items(100,300, "key");
 var gameitems = [items];
-var gemitems = [gem,gem2,gem3];
+
 
 // set the score
 
 
 
-alert("return a score" + player.setScore(25));
+//alert("return a score" + player.setScore(25));
 
 
 for(var i=0; i<gameitems.length; i++) {
@@ -220,12 +220,7 @@ allItems.push(gameitems[i]);
 
 }
 
-//alert(objectinst[0]);
-for(var i=0; i <gemitems.length; i++) {
 
-allGems.push(gemitems[i]);
-
-}
 
 
 
@@ -277,6 +272,43 @@ document.addEventListener('keydown', function(e) {
     player.handleInput(allowedKeys[e.keyCode]);
 });
 
+
+var checkGemCollisions = function() {
+
+
+  var gemitems = [gem,gem2,gem3];
+
+  //alert(objectinst[0]);
+for(var i=0; i <gemitems.length; i++) {
+
+allGems.push(gemitems[i]);
+
+gems = gemitems[i];
+
+//alert("element" + (i + 1) + " "+ gems.x);
+//alert(gems.y);
+
+ if(player.x >= gems.x + 0 && player.x < gems.x + 50 && player.y >= gems.y + 0 && player.y < gems.y + 50) {
+     
+    console.log("enemy has been hit");
+
+    
+
+    }
+    else {
+
+        console.log("player has not hit enemey");
+        
+    }
+
+
+
+
+}
+
+
+
+}
 
 var checkCollisions = function() {
 
