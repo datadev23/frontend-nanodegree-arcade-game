@@ -3,6 +3,7 @@
 var player;
 var gem;
 var score = 0;
+var hide = false;
 var Enemy = function(x,y,speed) {
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
@@ -148,7 +149,19 @@ var Gems = function(x,y,color) {
 
 Gems.prototype.render = function() {
 
-    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+  // show or hide the particular gem that is removed 
+ // create a boolean switch so if the hit detection has been reached then 
+ // set the hide clause to true
+   // alert(hide);
+   
+    if(hide == false) {
+      ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+    }
+    else
+    {
+      ctx.drawImage(Resources.get("images/stone-block.png"), this.x, this.y);
+    }
+
 
     }
 
@@ -234,7 +247,7 @@ switch(keys) {
     break;
        case 'up':
     this.y = this.y - 10;
-    score += 20;
+  //  score += 20;
     break;
        case 'right':
     this.x = this.x + 10;
@@ -288,10 +301,11 @@ gems = gemitems[i];
 //alert("element" + (i + 1) + " "+ gems.x);
 //alert(gems.y);
 
- if(player.x >= gems.x + 0 && player.x < gems.x + 50 && player.y >= gems.y + 0 && player.y < gems.y + 50) {
+ if(player.x >= gemitems[i].x + 0 && player.x < gemitems[i].x + 50 && player.y >= gemitems[i].y + 0 && player.y < gemitems[i].y + 50) {
      
-    console.log("enemy has been hit");
-
+    //alert("gem has been hit");
+  //  ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+hide = true;
     
 
     }
