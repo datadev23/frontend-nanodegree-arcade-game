@@ -45,8 +45,10 @@ var Player = function(x,y,speed) {
 
     // set the speed of the enemy
     this.speed = speed;
-    this.x = x
+    this.x = x;
     this.y = y;
+    this.playerWidth = 101;
+    this.playerHeight =171;
     
 };
 
@@ -81,7 +83,7 @@ Player.prototype.render = function() {
 
     console.log("playerx :" + player.x);
       console.log("playery :" + player.y);
-      console.log("a sandwhich has been detected");
+      
 
 if(this.x < 0) {
 
@@ -113,9 +115,6 @@ if(this.y >= canvas.height - 210) {
 
 
 
-else {
-    console.log("no side hit detection");
-}
 
 
 
@@ -142,28 +141,25 @@ var Gems = function(x,y,color) {
 
     }
 
+    this.gemWidth = 50;
+    this.gemHeight =50;
+
     
       this.x = x;
     this.y = y;
 }
-
-Gems.prototype.render = function() {
+// get the x and y coordinate of the gem
+Gems.prototype.render = function(x,y) {
 
   // show or hide the particular gem that is removed 
  // create a boolean switch so if the hit detection has been reached then 
  // set the hide clause to true
    // alert(hide);
-   
-    if(hide == false) {
+
       ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
     }
-    else
-    {
-      ctx.drawImage(Resources.get("images/stone-block.png"), this.x, this.y);
-    }
 
 
-    }
 
 
     var Items = function(x,y,item) {
@@ -301,19 +297,18 @@ gems = gemitems[i];
 //alert("element" + (i + 1) + " "+ gems.x);
 //alert(gems.y);
 
- if(player.x >= gemitems[i].x + 0 && player.x < gemitems[i].x + 50 && player.y >= gemitems[i].y + 0 && player.y < gemitems[i].y + 50) {
+ if(player.x < gemitems[i].x + gemitems[i].gemWidth && player.x + player.playerWidth > gem.x
+  && player.y < gemitems[i].y + gemitems[i].gemHeight && player.playerHeight + player.y > gemitems[i].y) {
      
     //alert("gem has been hit");
-  //  ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+    console.log("gem collison detected");
+  //  ctx.drawImage(Resources.get(this.sprite), this.x, this.y);rect1.height + rect1.y > rect2.y
 hide = true;
-    
+
+    allItems.push(gameitems[i]);
 
     }
-    else {
-
-        console.log("player has not hit enemey");
-        
-    }
+  
 
 
 
@@ -357,11 +352,7 @@ alert(((this.x > objectinst[i].x + 0 && this.x < objectinst[i].x + 400)
     console.log("enemy has been hit");
 
     }
-    else {
 
-        console.log("player has not hit enemey");
-        
-    }
 
   
 
@@ -389,7 +380,5 @@ var scoreUpdate = function() {
     ctx.fillText("Health" + 20, 400,30);
 
 }
-
-
 
 
