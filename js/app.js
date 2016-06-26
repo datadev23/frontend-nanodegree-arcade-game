@@ -47,8 +47,8 @@ var Player = function(x,y,speed) {
     this.speed = speed;
     this.x = x;
     this.y = y;
-    this.playerWidth = 101;
-    this.playerHeight =171;
+    this.playerWidth = 100;
+    this.playerHeight =100;
     
 };
 
@@ -141,8 +141,8 @@ var Gems = function(x,y,color) {
 
     }
 
-    this.gemWidth = 50;
-    this.gemHeight =50;
+    this.gemWidth = 100;
+    this.gemHeight =100;
 
     
       this.x = x;
@@ -203,7 +203,7 @@ var allGems = [];
 var allItems = [];
 
 player = new Player(10,400);
-gem = new Gems(10,50,"green");
+gem = new Gems(10,200,"green");
 gem2 = new Gems(200,100,"orange");
 gem3 = new Gems(300,200,"blue");
 var myenemy = new Enemy(100,50);
@@ -243,7 +243,7 @@ switch(keys) {
     break;
        case 'up':
     this.y = this.y - 10;
-  //  score += 20;
+   score += 20;
     break;
        case 'right':
     this.x = this.x + 10;
@@ -301,11 +301,13 @@ gems = gemitems[i];
   && player.y < gemitems[i].y + gemitems[i].gemHeight && player.playerHeight + player.y > gemitems[i].y) {
      
     //alert("gem has been hit");
-    console.log("gem collison detected");
-  //  ctx.drawImage(Resources.get(this.sprite), this.x, this.y);rect1.height + rect1.y > rect2.y
-hide = true;
 
-    allItems.push(gameitems[i]);
+    console.log("gem collison detected");
+
+  //  ctx.drawImage(Resources.get(this.sprite), this.x, this.y);rect1.height + rect1.y > rect2.y
+
+
+    console.log("test" + i + "");
 
     }
   
@@ -376,6 +378,8 @@ var scoreUpdate = function() {
 
     ctx.font = "20px Ariel";
     ctx.strokeText("Player score  " + player.getScore(), 20,30);
+    ctx.clearRect(0, 0, 200, 100);
+     ctx.strokeText("Player score  " + player.getScore(), 20,30);
      ctx.fillText("Lives score" + 20, 200,30);
     ctx.fillText("Health" + 20, 400,30);
 

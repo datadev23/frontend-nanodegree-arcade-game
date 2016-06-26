@@ -158,16 +158,19 @@ var Engine = (function(global) {
             gems.render();
         });
 
+             /*
+
             allItems.forEach(function(items) {
             items.render();
         });
+*/
 /*
 Loop through all the objects within the gem allgems array and 
 then call the render function. 
 */
         player.render();
         gem.render();
-        items.render();
+     //   items.render();
 
     }
 
