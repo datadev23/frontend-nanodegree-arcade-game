@@ -243,7 +243,7 @@ switch(keys) {
     break;
        case 'up':
     this.y = this.y - 10;
-   score += 20;
+  
     break;
        case 'right':
     this.x = this.x + 10;
@@ -294,20 +294,20 @@ allGems.push(gemitems[i]);
 
 gems = gemitems[i];
 
+
+
 //alert("element" + (i + 1) + " "+ gems.x);
 //alert(gems.y);
 
- if(player.x < gemitems[i].x + gemitems[i].gemWidth && player.x + player.playerWidth > gem.x
-  && player.y < gemitems[i].y + gemitems[i].gemHeight && player.playerHeight + player.y > gemitems[i].y) {
+ if(player.x < allGems[i].x + allGems[i].gemWidth && player.x + player.playerWidth > allGems[i].x
+  && player.y < allGems[i].y + allGems[i].gemHeight && player.playerHeight + player.y > allGems[i].y) {
      
     //alert("gem has been hit");
-
+     score = 20;
+     
     console.log("gem collison detected");
 
   //  ctx.drawImage(Resources.get(this.sprite), this.x, this.y);rect1.height + rect1.y > rect2.y
-
-
-    console.log("test" + i + "");
 
     }
   
