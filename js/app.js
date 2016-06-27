@@ -47,8 +47,8 @@ var Player = function(x,y,speed) {
     this.speed = speed;
     this.x = x;
     this.y = y;
-    this.playerWidth = 100;
-    this.playerHeight =100;
+    this.playerWidth = 67;
+    this.playerHeight =88;
     
 };
 
@@ -141,8 +141,8 @@ var Gems = function(x,y,color) {
 
     }
 
-    this.gemWidth = 100;
-    this.gemHeight =100;
+    this.gemWidth = 60;
+    this.gemHeight =67;
 
     
       this.x = x;
@@ -216,23 +216,6 @@ items = new Items(100,300, "key");
 var gameitems = [items];
 
 
-// set the score
-
-
-
-//alert("return a score" + player.setScore(25));
-
-
-for(var i=0; i<gameitems.length; i++) {
-
-allItems.push(gameitems[i]);
-
-}
-
-
-
-
-
 
 Player.prototype.handleInput = function(keys) {
 
@@ -304,9 +287,13 @@ gems = gemitems[i];
      
     //alert("gem has been hit");
      score = 20;
-     
+   
     console.log("gem collison detected");
+   // alert("gem removed" + i)
 
+
+
+alert()
   //  ctx.drawImage(Resources.get(this.sprite), this.x, this.y);rect1.height + rect1.y > rect2.y
 
     }
@@ -360,17 +347,6 @@ alert(((this.x > objectinst[i].x + 0 && this.x < objectinst[i].x + 400)
 
 }
 
-     //alert("x value of the enemy" + enemy.x);
-    // alert("y value of the enemy" + enemy.y);
-
-
-   
-
-
-
-   
- 
- 
 
 }
 
