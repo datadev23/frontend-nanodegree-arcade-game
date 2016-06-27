@@ -82,7 +82,7 @@ var Engine = (function(global) {
      */
     function update(dt) {
         updateEntities(dt);
-        //checkCollisions();
+        checkCollisions();
         //checkGemCollisions();
         scoreUpdate();
     }
@@ -160,7 +160,7 @@ var Engine = (function(global) {
          * the render function you have defined.
          */
         allEnemies.forEach(function(enemy) {
-            // enemy.render();
+            enemy.render();
         });
         /*
              allGems.forEach(function(gems) {
