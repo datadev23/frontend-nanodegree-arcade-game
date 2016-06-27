@@ -1,12 +1,11 @@
 // Enemies our player must avoid
-
 var player;
 var gem;
 var score = 0;
-var win = false;
+
 
 // Enemy object
-var Enemy = function(x,y,speed) {
+var Enemy = function(x, y, speed) {
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
 
@@ -20,7 +19,7 @@ var Enemy = function(x,y,speed) {
     this.y = y;
     this.enemyWidth = 99;
     this.enemyHeight = 77;
-   
+
 };
 
 // Update the enemy's position, required method for game
@@ -29,20 +28,20 @@ Enemy.prototype.update = function(dt) {
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
-   this.x = this.x + (dt * this.speed);
+    this.x = this.x + (dt * this.speed);
 
-   if (this.x > 500)
+    if (this.x > 500)
 
-   {
+    {
 
-    this.x = 0;
-      this.x = this.x + (dt * this.speed);
-   }
+        this.x = 0;
+        this.x = this.x + (dt * this.speed);
+    }
 
 
-   console.log(this.x);
+    console.log(this.x);
     //this.x*dt;
-    this.y*dt;
+    this.y * dt;
 
 };
 
@@ -55,19 +54,18 @@ Enemy.prototype.render = function() {
 };
 
 // Now write your own player class
-var Player = function(x,y) {
+var Player = function(x, y) {
 
-  this.sprite = 'images/char-boy.png';
+    this.sprite = 'images/char-boy.png';
 
     // set the speed of the enemy
     //this.speed = speed;
     this.x = x;
     this.y = y;
     this.playerWidth = 67;
-    this.playerHeight =88;
-    
-};
+    this.playerHeight = 88;
 
+};
 
 
 
@@ -82,14 +80,13 @@ Player.prototype.update = function(dt) {
 
 Player.prototype.setScore = function(sco) {
 
-score = sco;
+    score = sco;
 
 }
 
 Player.prototype.getScore = function() {
-  return score;
+    return score;
 }
-
 
 
 
@@ -98,42 +95,37 @@ Player.prototype.render = function() {
 
 
     console.log("playerx :" + player.x);
-      console.log("playery :" + player.y);
-      
-
-if(this.x < 0) {
-
-    console.log("player and side collision x direction");
-    this.x = 0;
-}
-
-if(this.x > canvas.width - player.playerWidth) {
-    console.log("player side collison x direction ");
-   this.x = canvas.width - player.playerWidth;
-}
+    console.log("playery :" + player.y);
 
 
+    if (this.x < 0) {
 
-if(this.y < 0) {
-   this.y = 0;
-   console.log("hit detection for y top");
-}
+        console.log("player and side collision x direction");
+        this.x = 0;
+    }
 
-if(this.y >= canvas.height - player.playerHeight - 20) {
-   this.y = canvas.height - player.playerHeight - 20;
-   console.log("hit detection for y top");
-}
-
-
-if ((this.x > 370 && this.x < 420) && (this.y > 10 && this.y < 70))
-{
-
-  alert("you win game");
-}
+    if (this.x > canvas.width - player.playerWidth) {
+        console.log("player side collison x direction ");
+        this.x = canvas.width - player.playerWidth;
+    }
 
 
 
+    if (this.y < 0) {
+        this.y = 0;
+        console.log("hit detection for y top");
+    }
 
+    if (this.y >= canvas.height - player.playerHeight - 20) {
+        this.y = canvas.height - player.playerHeight - 20;
+        console.log("hit detection for y top");
+    }
+
+
+    if ((this.x > 370 && this.x < 420) && (this.y > 10 && this.y < 70)) {
+
+        alert("you win game");
+    }
 
 
 
@@ -143,72 +135,68 @@ if ((this.x > 370 && this.x < 420) && (this.y > 10 && this.y < 70))
 
 
 
-var Gems = function(x,y,color) {
+var Gems = function(x, y, color) {
 
-    switch(color) {
+        switch (color) {
 
-      case "orange" :
-      this.sprite = 'images/gem-orange.png';
-      break;
-      case "green" :
-      this.sprite = 'images/gem-green.png';
-      break;
-      case "blue" :
-      this.sprite = 'images/gem-blue.png';
-      break;
-
-
-
-    }
-
-    this.gemWidth = 60;
-    this.gemHeight =67;
-
-    
-      this.x = x;
-    this.y = y;
-}
-// get the x and y coordinate of the gem
-Gems.prototype.render = function(x,y) {
-
-  // show or hide the particular gem that is removed 
- // create a boolean switch so if the hit detection has been reached then 
- // set the hide clause to true
-   // alert(hide);
-
-      ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
-    }
+            case "orange":
+                this.sprite = 'images/gem-orange.png';
+                break;
+            case "green":
+                this.sprite = 'images/gem-green.png';
+                break;
+            case "blue":
+                this.sprite = 'images/gem-blue.png';
+                break;
 
 
 
+        }
 
-    var Items = function(x,y,item) {
+        this.gemWidth = 60;
+        this.gemHeight = 67;
 
-      switch(item) {
-      case "key" :
-       this.sprite = 'images/key.png';
-      break;
-        case "rock" :
-       this.sprite = 'images/rock.png';
-      break;
-
-
-      }
 
         this.x = x;
-    this.y = y;
+        this.y = y;
+    }
+    // get the x and y coordinate of the gem
+Gems.prototype.render = function(x, y) {
+
+    // show or hide the particular gem that is removed 
+    // create a boolean switch so if the hit detection has been reached then 
+    // set the hide clause to true
+    // alert(hide);
+
+    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+}
+
+
+
+
+var Items = function(x, y, item) {
+
+    switch (item) {
+        case "key":
+            this.sprite = 'images/key.png';
+            break;
+        case "rock":
+            this.sprite = 'images/rock.png';
+            break;
+
 
     }
 
-    Items.prototype.render = function() {
+    this.x = x;
+    this.y = y;
+
+}
+
+Items.prototype.render = function() {
 
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 
-    }
-
-
-
-
+}
 
 
 
@@ -222,55 +210,55 @@ var allGems = [];
 // create array of object instances
 var allItems = [];
 
-player = new Player(300,500);
-gem = new Gems(10,200,"green");
-gem2 = new Gems(200,100,"orange");
-gem3 = new Gems(300,200,"blue");
-var myenemy = new Enemy(20,100,1);
-var myenemy2 = new Enemy(20,250,1);
-var myenemy3 = new Enemy(20,350,1);
+player = new Player(300, 500);
+gem = new Gems(10, 200, "green");
+gem2 = new Gems(200, 100, "orange");
+gem3 = new Gems(300, 200, "blue");
+var myenemy = new Enemy(20, 100, 1);
+var myenemy2 = new Enemy(20, 250, 1);
+var myenemy3 = new Enemy(20, 350, 1);
 
 
 
 // Now instantiate your objects.
-items = new Items(100,300, "key");
+items = new Items(100, 300, "key");
 var gameitems = [items];
 
 
 
 Player.prototype.handleInput = function(keys) {
 
-switch(keys) {
+    switch (keys) {
 
-    case 'left':
-    this.x =  (this.x - 10);
-    break;
-       case 'up':
-    this.y = this.y - 10;
-  
-    break;
-       case 'right':
-    this.x = this.x + 10;
-    break;
-       case 'down':
-     this.y = this.y + 10;
-    break;
-}
+        case 'left':
+            this.x = (this.x - 10);
+            break;
+        case 'up':
+            this.y = this.y - 10;
+
+            break;
+        case 'right':
+            this.x = this.x + 10;
+            break;
+        case 'down':
+            this.y = this.y + 10;
+            break;
+    }
 
 }
 
 Player.prototype.resetGame = function() {
 
-      score = 0;
-      collide = false;
+    score = 0;
+    collide = false;
 
-      player = new Player(10,400);
-gem = new Gems(10,200,"green");
-gem2 = new Gems(200,100,"orange");
-gem3 = new Gems(300,200,"blue");
-var myenemy = new Enemy(100,50,1);
-var myenemy2 = new Enemy(100,150,1);
-var myenemy3 = new Enemy(100,250,1);
+    player = new Player(10, 400);
+    gem = new Gems(10, 200, "green");
+    gem2 = new Gems(200, 100, "orange");
+    gem3 = new Gems(300, 200, "blue");
+    var myenemy = new Enemy(100, 50, 1);
+    var myenemy2 = new Enemy(100, 150, 1);
+    var myenemy3 = new Enemy(100, 250, 1);
 
 }
 
@@ -282,7 +270,6 @@ var myenemy3 = new Enemy(100,250,1);
 
 
 // 0 will be the edge of the canvas
-
 
 
 
@@ -304,41 +291,39 @@ document.addEventListener('keydown', function(e) {
 var checkGemCollisions = function() {
 
 
-  var gemitems = [gem,gem2,gem3];
+    var gemitems = [gem, gem2, gem3];
 
-  //alert(objectinst[0]);
-for(var i=0; i <gemitems.length; i++) {
+    //alert(objectinst[0]);
+    for (var i = 0; i < gemitems.length; i++) {
 
-allGems.push(gemitems[i]);
+        allGems.push(gemitems[i]);
 
-gems = gemitems[i];
-
-
-
-//alert("element" + (i + 1) + " "+ gems.x);
-//alert(gems.y);
-
- if(player.x < allGems[i].x + allGems[i].gemWidth && player.x + player.playerWidth > allGems[i].x
-  && player.y < allGems[i].y + allGems[i].gemHeight && player.playerHeight + player.y > allGems[i].y) {
-     
-    //alert("gem has been hit");
- 
-   
-    console.log("gem collison detected");
-   // alert("gem removed" + i)
+        gems = gemitems[i];
 
 
 
-alert()
-  //  ctx.drawImage(Resources.get(this.sprite), this.x, this.y);rect1.height + rect1.y > rect2.y
+        //alert("element" + (i + 1) + " "+ gems.x);
+        //alert(gems.y);
+
+        if (player.x < allGems[i].x + allGems[i].gemWidth && player.x + player.playerWidth > allGems[i].x && player.y < allGems[i].y + allGems[i].gemHeight && player.playerHeight + player.y > allGems[i].y) {
+
+            //alert("gem has been hit");
+
+
+            console.log("gem collison detected");
+            // alert("gem removed" + i)
+
+
+
+            alert()
+                //  ctx.drawImage(Resources.get(this.sprite), this.x, this.y);rect1.height + rect1.y > rect2.y
+
+        }
+
+
+
 
     }
-  
-
-
-
-
-}
 
 
 
@@ -346,69 +331,69 @@ alert()
 
 var checkCollisions = function() {
 
-   console.log("x value of the player" + player.x);
-     console.log("y value of the player" + player.y);
+    console.log("x value of the player" + player.x);
+    console.log("y value of the player" + player.y);
 
-  var objectinst = [myenemy, myenemy2,myenemy3];
-for(var i=0; i <objectinst.length; i++)
-{
-allEnemies.push(objectinst[i]); 
-enemy = allEnemies[i];
+    var objectinst = [myenemy, myenemy2, myenemy3];
+    for (var i = 0; i < objectinst.length; i++) {
+        allEnemies.push(objectinst[i]);
+        enemy = allEnemies[i];
 
-//alert(enemy);
-
+        //alert(enemy);
 
 
 
 
+        if (player.x < allEnemies[i].x + allEnemies[i].enemyWidth && player.x + player.playerWidth > allEnemies[i].x && player.y < allEnemies[i].y + allEnemies[i].enemyHeight && player.playerHeight + player.y > allEnemies[i].y) {
+            //score = 20;
+            alert("enemy");
+            player.resetGame();
 
-   if(player.x < allEnemies[i].x + allEnemies[i].enemyWidth && player.x + player.playerWidth > allEnemies[i].x
-  && player.y < allEnemies[i].y + allEnemies[i].enemyHeight && player.playerHeight + player.y > allEnemies[i].y) {
-     //score = 20;
-    alert("enemy");
-  player.resetGame();
+        }
+
+
+
 
     }
-
-
-  
-
-}
 
 
 }
 
 var scoreUpdate = function() {
     ctx.font = "20px Ariel";
-    ctx.strokeText("Player score  " + player.getScore(), 20,30);
+    ctx.strokeText("Player score  " + player.getScore(), 20, 30);
     ctx.clearRect(0, 0, 200, 100);
-     ctx.strokeText("Player score  " + player.getScore(), 20,30);
-     ctx.fillText("Lives score" + 20, 200,30);
-     ctx.clearRect(200, 200, 300, 200);
-     ctx.fillText("Lives score" + 20, 200,30);
-    ctx.fillText("Health" + 20, 400,30);
-
-}
-
-var gameState = function()  {
-
-
-  if(win == true)
-
-  {
-   
-
-  }
-
-  else 
-
-  {
-
-  }
-
-
-
+    ctx.strokeText("Player score  " + player.getScore(), 20, 30);
+    ctx.fillText("Lives score" + 20, 200, 30);
+    ctx.clearRect(200, 200, 300, 200);
+    ctx.fillText("Lives score" + 20, 200, 30);
+    ctx.fillText("Health" + 20, 400, 30);
 
 }
 
 
+
+
+var gameState = function() {
+
+    endgame = true;
+
+
+    if (win == true)
+
+    {
+
+        ctx.font = "20px Ariel";
+        ctx.strokeText("Player score  " + player.getScore(), 20, 30);
+
+    } else
+
+    {
+        ctx.font = "20px Ariel";
+        ctx.strokeText("Player score  " + player.getScore(), 20, 30);
+    }
+
+
+
+
+}

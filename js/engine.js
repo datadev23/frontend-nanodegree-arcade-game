@@ -13,7 +13,7 @@
  * the canvas' context (ctx) object globally available to make writing app.js
  * a little simpler to work with.
  */
-
+//var endgame = false;
 var Engine = (function(global) {
     /* Predefine the variables we'll be using within this scope,
      * create the canvas element, grab the 2D context for that canvas
@@ -24,6 +24,8 @@ var Engine = (function(global) {
         canvas = doc.createElement('canvas'),
         ctx = canvas.getContext('2d'),
         lastTime;
+    endgame = false;
+
 
     canvas.width = 505;
     canvas.height = 606;
@@ -111,12 +113,12 @@ var Engine = (function(global) {
          * for that particular row of the game level.
          */
         var rowImages = [
-                'images/water-block.png',   // Top row is water
-                'images/stone-block.png',   // Row 1 of 3 of stone
-                'images/stone-block.png',   // Row 2 of 3 of stone
-                'images/stone-block.png',   // Row 3 of 3 of stone
-                'images/grass-block.png',   // Row 1 of 2 of grass
-                'images/grass-block.png'    // Row 2 of 2 of grass
+                'images/water-block.png', // Top row is water
+                'images/stone-block.png', // Row 1 of 3 of stone
+                'images/stone-block.png', // Row 2 of 3 of stone
+                'images/stone-block.png', // Row 3 of 3 of stone
+                'images/grass-block.png', // Row 1 of 2 of grass
+                'images/grass-block.png' // Row 2 of 2 of grass
             ],
             numRows = 6,
             numCols = 5,
@@ -135,7 +137,14 @@ var Engine = (function(global) {
                  * so that we get the benefits of caching these images, since
                  * we're using them over and over.
                  */
-                ctx.drawImage(Resources.get(rowImages[row]), col * 101, row * 83);
+
+                if (global.endgame == false) {
+                    ctx.drawImage(Resources.get(rowImages[row]), col * 101, row * 83);
+                } else {
+                    // this is a blank canvas
+                }
+
+
             }
         }
 
@@ -151,7 +160,7 @@ var Engine = (function(global) {
          * the render function you have defined.
          */
         allEnemies.forEach(function(enemy) {
-           // enemy.render();
+            // enemy.render();
         });
         /*
              allGems.forEach(function(gems) {
@@ -159,19 +168,19 @@ var Engine = (function(global) {
         });
 */
 
-             /*
+        /*
 
             allItems.forEach(function(items) {
             items.render();
         });
 */
-/*
-Loop through all the objects within the gem allgems array and 
-then call the render function. 
-*/
+        /*
+        Loop through all the objects within the gem allgems array and 
+        then call the render function. 
+        */
         player.render();
-       // gem.render();
-     //   items.render();
+        // gem.render();
+        //   items.render();
 
     }
 
@@ -193,11 +202,11 @@ then call the render function.
         'images/grass-block.png',
         'images/enemy-bug.png',
         'images/char-boy.png',
-         'images/gem-orange.png',
-         'images/gem-green.png',
-         'images/gem-blue.png',
-         'images/key.png'
-        
+        'images/gem-orange.png',
+        'images/gem-green.png',
+        'images/gem-blue.png',
+        'images/key.png'
+
     ]);
     Resources.onReady(init);
 
@@ -207,6 +216,6 @@ then call the render function.
      */
     global.ctx = ctx;
     global.canvas = canvas;
+    global.endgame = endgame;
 
 })(this);
-
