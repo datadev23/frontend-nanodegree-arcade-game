@@ -3,7 +3,9 @@
 var player;
 var gem;
 var score = 0;
+var win = false;
 
+// Enemy object
 var Enemy = function(x,y,speed) {
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
@@ -27,7 +29,16 @@ Enemy.prototype.update = function(dt) {
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
-   this.x += this.x * 0.001;
+   this.x = this.x + (dt * this.speed);
+
+   if (this.x > 500)
+
+   {
+
+    this.x = 0;
+      this.x = this.x + (dt * this.speed);
+   }
+
 
    console.log(this.x);
     //this.x*dt;
@@ -96,9 +107,9 @@ if(this.x < 0) {
     this.x = 0;
 }
 
-if(this.x > canvas.width - 110) {
+if(this.x > canvas.width - player.playerWidth) {
     console.log("player side collison x direction ");
-   this.x = canvas.width - 110;
+   this.x = canvas.width - player.playerWidth;
 }
 
 
@@ -108,13 +119,17 @@ if(this.y < 0) {
    console.log("hit detection for y top");
 }
 
-if(this.y >= canvas.height - 210) {
-   this.y = canvas.height - 210;
+if(this.y >= canvas.height - player.playerHeight - 20) {
+   this.y = canvas.height - player.playerHeight - 20;
    console.log("hit detection for y top");
 }
 
 
+if ((this.x > 370 && this.x < 420) && (this.y > 10 && this.y < 70))
+{
 
+  alert("you win game");
+}
 
 
 
@@ -207,13 +222,13 @@ var allGems = [];
 // create array of object instances
 var allItems = [];
 
-player = new Player(10,400);
+player = new Player(300,500);
 gem = new Gems(10,200,"green");
 gem2 = new Gems(200,100,"orange");
 gem3 = new Gems(300,200,"blue");
-var myenemy = new Enemy(20,50,1);
-var myenemy2 = new Enemy(20,150,1);
-var myenemy3 = new Enemy(20,250,1);
+var myenemy = new Enemy(20,100,1);
+var myenemy2 = new Enemy(20,250,1);
+var myenemy3 = new Enemy(20,350,1);
 
 
 
@@ -364,13 +379,35 @@ enemy = allEnemies[i];
 }
 
 var scoreUpdate = function() {
-
     ctx.font = "20px Ariel";
     ctx.strokeText("Player score  " + player.getScore(), 20,30);
     ctx.clearRect(0, 0, 200, 100);
      ctx.strokeText("Player score  " + player.getScore(), 20,30);
      ctx.fillText("Lives score" + 20, 200,30);
+     ctx.clearRect(200, 200, 300, 200);
+     ctx.fillText("Lives score" + 20, 200,30);
     ctx.fillText("Health" + 20, 400,30);
+
+}
+
+var gameState = function()  {
+
+
+  if(win == true)
+
+  {
+   
+
+  }
+
+  else 
+
+  {
+
+  }
+
+
+
 
 }
 
