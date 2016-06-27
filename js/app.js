@@ -316,7 +316,7 @@ var checkGemCollisions = function() {
 
 
             alert()
-                //  ctx.drawImage(Resources.get(this.sprite), this.x, this.y);rect1.height + rect1.y > rect2.y
+        
 
         }
 
@@ -377,6 +377,8 @@ var scoreUpdate = function() {
 var gameState = function() {
 
     endgame = true;
+
+    alert("you win");
 
 
     if (win == true)
