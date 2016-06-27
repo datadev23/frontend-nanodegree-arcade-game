@@ -80,8 +80,8 @@ var Engine = (function(global) {
      */
     function update(dt) {
         updateEntities(dt);
-       // checkCollisions();
-        checkGemCollisions();
+        checkCollisions();
+        //checkGemCollisions();
         scoreUpdate();
     }
 
@@ -153,10 +153,11 @@ var Engine = (function(global) {
         allEnemies.forEach(function(enemy) {
             enemy.render();
         });
-
+        /*
              allGems.forEach(function(gems) {
             gems.render();
         });
+*/
 
              /*
 
@@ -169,7 +170,7 @@ Loop through all the objects within the gem allgems array and
 then call the render function. 
 */
         player.render();
-        gem.render();
+       // gem.render();
      //   items.render();
 
     }
@@ -206,5 +207,6 @@ then call the render function.
      */
     global.ctx = ctx;
     global.canvas = canvas;
+    
 })(this);
 

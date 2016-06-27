@@ -3,7 +3,7 @@
 var player;
 var gem;
 var score = 0;
-var hide = false;
+
 var Enemy = function(x,y,speed) {
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
@@ -27,9 +27,10 @@ Enemy.prototype.update = function(dt) {
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
-   // this.x = this.x + 1;
+   this.x += this.x +1 *dt;
     //this.x*dt;
     this.y*dt;
+
 };
 
 
@@ -41,12 +42,12 @@ Enemy.prototype.render = function() {
 };
 
 // Now write your own player class
-var Player = function(x,y,speed) {
+var Player = function(x,y) {
 
   this.sprite = 'images/char-boy.png';
 
     // set the speed of the enemy
-    this.speed = speed;
+    //this.speed = speed;
     this.x = x;
     this.y = y;
     this.playerWidth = 67;
@@ -208,9 +209,10 @@ player = new Player(10,400);
 gem = new Gems(10,200,"green");
 gem2 = new Gems(200,100,"orange");
 gem3 = new Gems(300,200,"blue");
-var myenemy = new Enemy(100,50);
-var myenemy2 = new Enemy(100,150);
-var myenemy3 = new Enemy(100,250);
+var myenemy = new Enemy(20,50,1);
+var myenemy2 = new Enemy(20,150,1);
+var myenemy3 = new Enemy(20,250,1);
+
 
 
 // Now instantiate your objects.
@@ -237,6 +239,21 @@ switch(keys) {
      this.y = this.y + 10;
     break;
 }
+
+}
+
+Player.prototype.resetGame = function() {
+
+      score = 0;
+      collide = false;
+
+      player = new Player(10,400);
+gem = new Gems(10,200,"green");
+gem2 = new Gems(200,100,"orange");
+gem3 = new Gems(300,200,"blue");
+var myenemy = new Enemy(100,50,1);
+var myenemy2 = new Enemy(100,150,1);
+var myenemy3 = new Enemy(100,250,1);
 
 }
 
@@ -288,7 +305,7 @@ gems = gemitems[i];
   && player.y < allGems[i].y + allGems[i].gemHeight && player.playerHeight + player.y > allGems[i].y) {
      
     //alert("gem has been hit");
-     score = 20;
+ 
    
     console.log("gem collison detected");
    // alert("gem removed" + i)
@@ -326,10 +343,13 @@ enemy = allEnemies[i];
 
 
 
-   if(player.x < allEnemies[i].x + allEnemies[i].gemWidth && player.x + player.playerWidth > allEnemies[i].x
-  && player.y < allEnemies[i].y + allEnemies[i].gemHeight && player.playerHeight + player.y > allEnemies[i].y) {
-     
-    console.log("enemy has been hit");
+
+
+   if(player.x < allEnemies[i].x + allEnemies[i].enemyWidth && player.x + player.playerWidth > allEnemies[i].x
+  && player.y < allEnemies[i].y + allEnemies[i].enemyHeight && player.playerHeight + player.y > allEnemies[i].y) {
+     //score = 20;
+    alert("enemy");
+  player.resetGame();
 
     }
 
