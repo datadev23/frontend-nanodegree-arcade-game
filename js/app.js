@@ -16,6 +16,8 @@ var Enemy = function(x,y,speed) {
     this.speed = speed;
     this.x = x
     this.y = y;
+    this.enemyWidth = 99;
+    this.enemyHeight = 77;
    
 };
 
@@ -316,27 +318,16 @@ var checkCollisions = function() {
   var objectinst = [myenemy, myenemy2,myenemy3];
 for(var i=0; i <objectinst.length; i++)
 {
-
-
-
 allEnemies.push(objectinst[i]); 
-/*
-if(this.x > objectinst[i].x + 0 && this.x < objectinst[i].x + 200) {
-    console.log("collision detected");
-}
-*/
 enemy = allEnemies[i];
 
 //alert(enemy);
 
-/*
-alert(((this.x > objectinst[i].x + 0 && this.x < objectinst[i].x + 400) 
-    && (this.y > objectinst[i].y + 0 && this.y < objectisnt[i].y + 400)));
-
-*/
 
 
-   if(player.x >= enemy.x + 0 && player.x < enemy.x + 50 && player.y >= enemy.y + 0 && player.y < enemy.y + 50) {
+
+   if(player.x < allEnemies[i].x + allEnemies[i].gemWidth && player.x + player.playerWidth > allEnemies[i].x
+  && player.y < allEnemies[i].y + allEnemies[i].gemHeight && player.playerHeight + player.y > allEnemies[i].y) {
      
     console.log("enemy has been hit");
 
