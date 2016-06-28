@@ -257,13 +257,13 @@ Player.prototype.resetGame = function() {
 
     scoreUpdate();
 
-    player = new Player(10, 400);
-    gem = new Gems(10, 200, "green");
-    gem2 = new Gems(200, 100, "orange");
-    gem3 = new Gems(300, 200, "blue");
-    var myenemy = new Enemy(100, 50, 1);
-    var myenemy2 = new Enemy(100, 150, 1);
-    var myenemy3 = new Enemy(100, 250, 1);
+player = new Player(300, 500);
+gem = new Gems(10, 200, "green");
+gem2 = new Gems(200, 100, "orange");
+gem3 = new Gems(300, 200, "blue");
+var myenemy = new Enemy(20, 150, 1);
+var myenemy2 = new Enemy(20, 250, 1);
+var myenemy3 = new Enemy(20, 350, 1);
 
 }
 
