@@ -22,5 +22,5 @@ The enemy bugs will hurt the player if he runs into them and the game will be re
 
 ### To Win
 
-To win the game you need to reach the water. When this happens a popup will tell "You win the game"
+To win the game you need to reach the water. When this happens a popup will tell you "You win the game"
 
