@@ -28,15 +28,17 @@ Enemy.prototype.update = function(dt) {
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
-    this.x = this.x + (dt * this.speed);
+     this.x = this.x + 1 *dt * 0.1;
 
     if (this.x > 500)
 
     {
 
-        this.x = 0;
-        this.x = this.x + (dt * this.speed);
+         this.x = 0;
+         this.x = this.x + 1 *dt * 0.01;
     }
+
+   
 
 
     console.log(this.x);
@@ -125,6 +127,7 @@ Player.prototype.render = function() {
     if ((this.x > 370 && this.x < 420) && (this.y > 10 && this.y < 70)) {
 
         alert("you win game");
+        player.resetGame();
     }
 
 
@@ -214,7 +217,7 @@ player = new Player(300, 500);
 gem = new Gems(10, 200, "green");
 gem2 = new Gems(200, 100, "orange");
 gem3 = new Gems(300, 200, "blue");
-var myenemy = new Enemy(20, 100, 1);
+var myenemy = new Enemy(20, 150, 1);
 var myenemy2 = new Enemy(20, 250, 1);
 var myenemy3 = new Enemy(20, 350, 1);
 
@@ -251,6 +254,8 @@ Player.prototype.resetGame = function() {
 
     score = 0;
     collide = false;
+
+    scoreUpdate();
 
     player = new Player(10, 400);
     gem = new Gems(10, 200, "green");
@@ -346,7 +351,7 @@ var checkCollisions = function() {
 
         if (player.x < allEnemies[i].x + allEnemies[i].enemyWidth && player.x + player.playerWidth > allEnemies[i].x && player.y < allEnemies[i].y + allEnemies[i].enemyHeight && player.playerHeight + player.y > allEnemies[i].y) {
             //score = 20;
-            alert("enemy");
+          //  alert("enemy");
             player.resetGame();
 
         }
@@ -378,7 +383,7 @@ var gameState = function() {
 
     endgame = true;
 
-    alert("you win");
+ 
 
 
     if (win == true)
