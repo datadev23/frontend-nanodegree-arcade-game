@@ -38,11 +38,6 @@ Enemy.prototype.update = function(dt) {
          this.x = this.x + 1 *dt * 0.01;
     }
 
-   
-
-
-    console.log(this.x);
-    //this.x*dt;
     this.y * dt;
 
 };
@@ -126,7 +121,7 @@ Player.prototype.render = function() {
 
     if ((this.x > 0 && this.x < 420) && (this.y > 10 && this.y < 70)) {
 
-        alert("you win the game");
+        alert("You win the game");
         player.resetGame();
     }
 
@@ -320,7 +315,7 @@ var checkGemCollisions = function() {
 
 
 
-            alert()
+        
         
 
         }
@@ -344,14 +339,11 @@ var checkCollisions = function() {
         allEnemies.push(objectinst[i]);
         enemy = allEnemies[i];
 
-        //alert(enemy);
-
-
 
 
         if (player.x < allEnemies[i].x + allEnemies[i].enemyWidth && player.x + player.playerWidth > allEnemies[i].x && player.y < allEnemies[i].y + allEnemies[i].enemyHeight && player.playerHeight + player.y > allEnemies[i].y) {
-            //score = 20;
-          //  alert("enemy");
+          
+          alert("You lose");
             player.resetGame();
 
         }

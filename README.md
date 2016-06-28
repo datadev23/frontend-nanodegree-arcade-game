@@ -14,13 +14,18 @@ For detailed instructions on how to get started, check out this [guide](https://
 ## Navigation
 
 To play the game use the arrow keys to navigate the player across the screen. 
+The player can go up and down and left and right. 
 
 ## Enemy
 
 The enemy bugs will hurt the player if he runs into them and the game will be reset.
 
+## Lose state
+When you hit an enemy bug the game is reset and the player is placed back to the default position. 
+A popup message telling you "You lose" will appear.
+
 
 ### To Win
 
-To win the game you need to reach the water. When this happens a popup will tell you "You win the game"
+To win the game you need to reach the water. When this happens a popup will tell you "You win the game".
 
