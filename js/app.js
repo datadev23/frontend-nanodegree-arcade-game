@@ -126,7 +126,7 @@ Player.prototype.render = function() {
 
     if ((this.x > 0 && this.x < 420) && (this.y > 10 && this.y < 70)) {
 
-        alert("you win game");
+        alert("you win the game");
         player.resetGame();
     }
 
