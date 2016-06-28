@@ -14,5 +14,5 @@ For detailed instructions on how to get started, check out this [guide](https://
 
 Please feel free to add a bug you discover to the current bug report.
 
-To win the game  you need togo to the top right title.
+To win the game  you need to reach the water.
 
