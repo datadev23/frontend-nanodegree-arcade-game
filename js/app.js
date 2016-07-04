@@ -91,18 +91,18 @@ Player.prototype.getScore = function() {
 Player.prototype.render = function() {
 
 
-    console.log("playerx :" + player.x);
-    console.log("playery :" + player.y);
+   // console.log("playerx :" + player.x);
+   // console.log("playery :" + player.y);
 
 
     if (this.x < 0) {
 
-        console.log("player and side collision x direction");
+        //console.log("player and side collision x direction");
         this.x = 0;
     }
 
     if (this.x > canvas.width - player.playerWidth) {
-        console.log("player side collison x direction ");
+       // console.log("player side collison x direction ");
         this.x = canvas.width - player.playerWidth;
     }
 
@@ -110,12 +110,12 @@ Player.prototype.render = function() {
 
     if (this.y < 0) {
         this.y = 0;
-        console.log("hit detection for y top");
+      //  console.log("hit detection for y top");
     }
 
     if (this.y >= canvas.height - player.playerHeight - 20) {
         this.y = canvas.height - player.playerHeight - 20;
-        console.log("hit detection for y top");
+      //  console.log("hit detection for y top");
     }
 
 
@@ -134,6 +134,9 @@ Player.prototype.render = function() {
 
 
 var Gems = function(x, y, color) {
+
+
+    this.color = color;
 
         switch (color) {
 
@@ -157,6 +160,7 @@ var Gems = function(x, y, color) {
 
         this.x = x;
         this.y = y;
+
     }
     // get the x and y coordinate of the gem
 Gems.prototype.render = function(x, y) {
@@ -290,13 +294,19 @@ document.addEventListener('keydown', function(e) {
 
 var checkGemCollisions = function() {
 
-
+//alert(gemitems.length);
     var gemitems = [gem, gem2, gem3];
 
+
+       //alert(i);
     //alert(objectinst[0]);
     for (var i = 0; i < gemitems.length; i++) {
 
+        // alert(i);
+
         allGems.push(gemitems[i]);
+        //alert(allGems.length);
+    
 
         gems = gemitems[i];
 
@@ -306,11 +316,13 @@ var checkGemCollisions = function() {
         //alert(gems.y);
 
         if (player.x < allGems[i].x + allGems[i].gemWidth && player.x + player.playerWidth > allGems[i].x && player.y < allGems[i].y + allGems[i].gemHeight && player.playerHeight + player.y > allGems[i].y) {
-
+         
+       //  alert(allGems[i].color);
+           // console.log("allGems" + allGems);
             //alert("gem has been hit");
+          allGems.splice(i,1);
 
-
-            console.log("gem collison detected");
+          //  console.log("gem collison detected");
             // alert("gem removed" + i)
 
 
@@ -331,8 +343,8 @@ var checkGemCollisions = function() {
 
 var checkCollisions = function() {
 
-    console.log("x value of the player" + player.x);
-    console.log("y value of the player" + player.y);
+   // console.log("x value of the player" + player.x);
+  //  console.log("y value of the player" + player.y);
 
     var objectinst = [myenemy, myenemy2, myenemy3];
     for (var i = 0; i < objectinst.length; i++) {
