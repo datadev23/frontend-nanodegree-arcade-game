@@ -182,27 +182,15 @@ document.addEventListener('keydown', function(e) {
     player.handleInput(allowedKeys[e.keyCode]);
 });
 var checkGemCollisions = function() {
-    //alert(gemitems.length);
     var gemitems = [gem, gem2, gem3];
-    //alert(i);
-    //alert(objectinst[0]);
     for (var i = 0; i < gemitems.length; i++) {
-        // alert(i);
         allGems.push(gemitems[i]);
-        //alert(allGems.length);
         gems = gemitems[i];
-        //alert("element" + (i + 1) + " "+ gems.x);
-        //alert(gems.y);
         if (player.x < allGems[i].x + allGems[i].gemWidth && player.x +
             player.playerWidth > allGems[i].x && player.y < allGems[i].y +
             allGems[i].gemHeight && player.playerHeight + player.y >
             allGems[i].y) {
-            //  alert(allGems[i].color);
-            // console.log("allGems" + allGems);
-            //alert("gem has been hit");
             allGems.splice(i, 1);
-            //  console.log("gem collison detected");
-            // alert("gem removed" + i)
         }
     }
 }
