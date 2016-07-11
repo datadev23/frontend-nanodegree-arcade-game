@@ -15,7 +15,7 @@ var Enemy = function(x, y, speed) {
 
     // set the speed of the enemy
     this.speed = speed;
-    this.x = x
+    this.x = x;
     this.y = y;
     this.enemyWidth = 99;
     this.enemyHeight = 77;
@@ -28,14 +28,14 @@ Enemy.prototype.update = function(dt) {
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
-     this.x = this.x + 1 *dt * 0.1;
+     this.speed = Math.floor(Math.random() * (speed - 1)) + 1;
 
     if (this.x > 500)
 
     {
 
          this.x = 0;
-         this.x = this.x + 1 *dt * 0.01;
+         this.speed = Math.floor(Math.random() * (speed - 1)) + 1;
     }
 
     this.y * dt;
