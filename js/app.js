@@ -2,6 +2,7 @@
 var player;
 var gem;
 var score = 0;
+var speed = 200;
 
 
 // Enemy object
@@ -28,12 +29,12 @@ Enemy.prototype.update = function(dt) {
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
-     this.speed = Math.floor(Math.random() * (speed - 1)) + 1;
+     this.x = this.x + 1 *dt * 0.1;
 
     if (this.x > 500){
 
-         this.x = 0;
-         this.speed = Math.floor(Math.random() * (speed - 1)) + 1;
+         this.x = -100;
+         this.x = Math.floor(Math.random() * (speed - 1)) + 1;
     }
 
     this.y * dt;
