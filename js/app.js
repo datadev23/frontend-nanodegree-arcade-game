@@ -30,9 +30,7 @@ Enemy.prototype.update = function(dt) {
     // all computers.
      this.speed = Math.floor(Math.random() * (speed - 1)) + 1;
 
-    if (this.x > 500)
-
-    {
+    if (this.x > 500){
 
          this.x = 0;
          this.speed = Math.floor(Math.random() * (speed - 1)) + 1;
@@ -91,8 +89,8 @@ Player.prototype.getScore = function() {
 Player.prototype.render = function() {
 
 
-    console.log("playerx :" + player.x);
-    console.log("playery :" + player.y);
+    console.log("playerx :" + this.x);
+    console.log("playery :" + this.y);
 
 
     if (this.x < 0) {
@@ -101,9 +99,9 @@ Player.prototype.render = function() {
         this.x = 0;
     }
 
-    if (this.x > canvas.width - player.playerWidth) {
+    if (this.x > canvas.width - this.playerWidth) {
         console.log("player side collison x direction ");
-        this.x = canvas.width - player.playerWidth;
+        this.x = canvas.width - this.playerWidth;
     }
 
 
@@ -113,8 +111,8 @@ Player.prototype.render = function() {
         console.log("hit detection for y top");
     }
 
-    if (this.y >= canvas.height - player.playerHeight - 20) {
-        this.y = canvas.height - player.playerHeight - 20;
+    if (this.y >= canvas.height - this.playerHeight - 20) {
+        this.y = canvas.height - this.playerHeight - 20;
         console.log("hit detection for y top");
     }
 
@@ -122,7 +120,7 @@ Player.prototype.render = function() {
     if ((this.x > 0 && this.x < 420) && (this.y > 10 && this.y < 70)) {
 
         alert("You win the game");
-        player.resetGame();
+        this.resetGame();
     }
 
 
