@@ -381,7 +381,7 @@ var gameState = function() {
  
 
 
-    if (win == true)
+    if (win === true)
 
     {
 
