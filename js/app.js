@@ -6,7 +6,7 @@ var speed = 0;
 
 
 // Enemy object
-var Enemy = function(x, y, speed) {
+ Enemy = function(x, y, speed) {
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
 
@@ -212,9 +212,9 @@ var allGems = [];
 var allItems = [];
 
 player = new Player(300, 500);
-gem = new Gems(10, 200, "green");
-gem2 = new Gems(200, 100, "orange");
-gem3 = new Gems(300, 200, "blue");
+//gem = new Gems(10, 200, "green");
+//gem2 = new Gems(200, 100, "orange");
+//gem3 = new Gems(300, 200, "blue");
 var myenemy = new Enemy(20, 150, 1);
 var myenemy2 = new Enemy(20, 250, 1);
 var myenemy3 = new Enemy(20, 350, 1);
@@ -222,8 +222,8 @@ var myenemy3 = new Enemy(20, 350, 1);
 
 
 // Now instantiate your objects.
-items = new Items(100, 300, "key");
-var gameitems = [items];
+//items = new Items(100, 300, "key");
+//var gameitems = [items];
 
 
 
@@ -386,13 +386,13 @@ var gameState = function() {
     {
 
         ctx.font = "20px Ariel";
-        ctx.strokeText("Player score  " + player.getScore(), 20, 30);
+        ctx.strokeText("Player score  " + this.getScore(), 20, 30);
 
     } else
 
     {
         ctx.font = "20px Ariel";
-        ctx.strokeText("Player score  " + player.getScore(), 20, 30);
+        ctx.strokeText("Player score  " + this.getScore(), 20, 30);
     }
 
 
