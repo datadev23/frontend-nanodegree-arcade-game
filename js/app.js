@@ -147,6 +147,8 @@ Player.prototype.render = function() {
 
 var Gems = function(x, y, color) {
 
+    this.color = color;
+
         switch (color) {
 
             case "orange":
@@ -309,19 +311,13 @@ var checkGemCollisions = function() {
 
         allGems.push(gemitems[i]);
 
-      
-
-
-
-        //alert("element" + (i + 1) + " "+ gems.x);
-        //alert(gems.y);
-
         if (player.x < allGems[i].x + allGems[i].gemWidth && player.x + player.playerWidth > allGems[i].x && player.y < allGems[i].y + allGems[i].gemHeight && player.playerHeight + player.y > allGems[i].y) {
 
             //alert("gem has been hit");
 
 
             console.log("gem collison detected");
+            console.log(gemitems[i].color);
             // alert("gem removed" + i)
 
 
