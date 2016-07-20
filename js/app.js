@@ -1,4 +1,5 @@
 // Enemies our player must avoid
+ "use strict";
 var player;
 var gem;
 var score = 0;
@@ -6,7 +7,7 @@ var speed = 0;
 
 
 // Enemy object
- Enemy = function(x, y, speed) {
+ var Enemy = function(x, y, speed) {
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
 
@@ -216,9 +217,9 @@ var allGems = [];
 var allItems = [];
 
 player = new Player(300, 500);
-//gem = new Gems(10, 200, "green");
-//gem2 = new Gems(200, 100, "orange");
-//gem3 = new Gems(300, 200, "blue");
+gem = new Gems(10, 200, "green");
+var gem2 = new Gems(200, 100, "orange");
+var gem3 = new Gems(300, 200, "blue");
 var myenemy = new Enemy(20, 150, 1);
 var myenemy2 = new Enemy(20, 250, 1);
 var myenemy3 = new Enemy(20, 350, 1);
@@ -308,7 +309,7 @@ var checkGemCollisions = function() {
 
         allGems.push(gemitems[i]);
 
-        gems = gemitems[i];
+      
 
 
 
@@ -341,13 +342,13 @@ var checkGemCollisions = function() {
 
 var checkCollisions = function() {
 
-    console.log("x value of the player" + player.x);
-    console.log("y value of the player" + player.y);
+    //console.log("x value of the player" + player.x);
+    //console.log("y value of the player" + player.y);
 
     var objectinst = [myenemy, myenemy2, myenemy3];
     for (var i = 0; i < objectinst.length; i++) {
         allEnemies.push(objectinst[i]);
-        enemy = allEnemies[i];
+      
 
 
 

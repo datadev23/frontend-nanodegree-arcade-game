@@ -83,7 +83,7 @@ var Engine = (function(global) {
     function update(dt) {
         updateEntities(dt);
         checkCollisions();
-        //checkGemCollisions();
+        checkGemCollisions();
         player.scoreUpdate();
     }
 
@@ -179,7 +179,7 @@ var Engine = (function(global) {
         then call the render function. 
         */
         player.render();
-        // gem.render();
+        gem.render();
         //   items.render();
 
     }
