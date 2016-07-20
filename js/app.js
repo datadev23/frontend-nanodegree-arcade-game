@@ -259,7 +259,7 @@ Player.prototype.handleInput = function(keys) {
 Player.prototype.resetGame = function() {
 
     score = 0;
-    collide = false;
+    
 
     player.scoreUpdate();
 
