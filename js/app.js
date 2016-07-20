@@ -91,7 +91,7 @@ Player.prototype.getScore = function() {
 
 
 
-Player.prototype.render = function() {
+Player.prototype.hitdetect = function() {
 
 
     console.log("playerx :" + this.x);
@@ -131,8 +131,16 @@ Player.prototype.render = function() {
 
 
 
-    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+    
 };
+
+Player.prototype.render = function() {
+
+    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+
+    };
+
+
 
 
 
@@ -164,10 +172,6 @@ var Gems = function(x, y, color) {
     // get the x and y coordinate of the gem
 Gems.prototype.render = function(x, y) {
 
-    // show or hide the particular gem that is removed 
-    // create a boolean switch so if the hit detection has been reached then 
-    // set the hide clause to true
-    // alert(hide);
 
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 }
@@ -232,16 +236,19 @@ Player.prototype.handleInput = function(keys) {
     switch (keys) {
 
         case 'left':
+        player.hitdetect();
             this.x = (this.x - 10);
             break;
         case 'up':
+          player.hitdetect();
             this.y = this.y - 10;
-
             break;
         case 'right':
+          player.hitdetect();
             this.x = this.x + 10;
             break;
         case 'down':
+          player.hitdetect();
             this.y = this.y + 10;
             break;
     }
@@ -253,7 +260,7 @@ Player.prototype.resetGame = function() {
     score = 0;
     collide = false;
 
-    scoreUpdate();
+    player.scoreUpdate();
 
 player = new Player(300, 500);
 gem = new Gems(10, 200, "green");
