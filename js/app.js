@@ -359,7 +359,7 @@ var checkCollisions = function() {
 
 }
 
-var scoreUpdate = function() {
+Player.prototype.scoreUpdate = function() {
     ctx.font = "20px Ariel";
     ctx.strokeText("Player score  " + this.getScore(), 20, 30);
     ctx.clearRect(0, 0, 200, 100);

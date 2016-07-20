@@ -84,7 +84,7 @@ var Engine = (function(global) {
         updateEntities(dt);
         checkCollisions();
         //checkGemCollisions();
-        scoreUpdate();
+        player.scoreUpdate();
     }
 
     /* This is called by the update function and loops through all of the
