@@ -3,13 +3,30 @@
 
 ## Installation Guide
 
+Make sure you have installed git.
+
+See git installation instructions.
+
+Linux Git installation Guide
+
+https://git-scm.com/book/en/v2/Getting-Started-Installing-Git
+
+Windows Git installation Guide
+
+
+https://confluence.atlassian.com/bitbucket/set-up-git-744723531.html
+
+Now use this command to clone the repository. 
+
+
 git clone https://github.com/datadev23/frontend-nanodegree-arcade-game
 
-cd frontend-nanodegree-arcade-game
+Now go to this folder frontend-nanodegree-arcade-game
 
-Students should use this [rubric](https://www.udacity.com/course/viewer/#!/c-nd001/l-2696458597/m-2687128535) for self-checking their submission.
+Inside the folder there is a file called index.html.
+Click on this file to load the game. 
 
-For detailed instructions on how to get started, check out this [guide](https://docs.google.com/document/d/1v01aScPjSWCCWQLIpFqvg3-vXLH2e8_SZQKC8jNO0Dc/pub?embedded=true).
+
 
 ## Navigation
 
