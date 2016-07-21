@@ -61,6 +61,8 @@ var Engine = (function(global) {
         win.requestAnimationFrame(main);
     }
 
+     checkGemCollisions();
+
     /* This function does some initial setup that should only occur once,
      * particularly setting the lastTime variable that is required for the
      * game loop.
@@ -83,7 +85,7 @@ var Engine = (function(global) {
     function update(dt) {
         updateEntities(dt);
         checkCollisions();
-        checkGemCollisions();
+       gemlogic();
         player.scoreUpdate();
     }
 

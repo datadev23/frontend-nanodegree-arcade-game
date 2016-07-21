@@ -4,6 +4,8 @@ var player;
 var gem;
 var score = 0;
 var speed = 0;
+var allGems;
+ var gemitems;
 
 
 // Enemy object
@@ -214,7 +216,7 @@ Items.prototype.render = function() {
 
 var allEnemies = [];
 // create an array to store the gems
-var allGems = [];
+allGems = [];
 // create array of object instances
 var allItems = [];
 
@@ -304,20 +306,33 @@ document.addEventListener('keydown', function(e) {
 var checkGemCollisions = function() {
 
 
-    var gemitems = [gem, gem2, gem3];
+    gemitems = [gem, gem2, gem3];
 
     //alert(objectinst[0]);
     for (var i = 0; i < gemitems.length; i++) {
-
+        
+      
         allGems.push(gemitems[i]);
+        //console.log(gemitems[i].color);
+        //console.log(gemitems[i]);
+    
+
+
+
+    }
+
+
+
+}
+
+var gemlogic = function() {
+ for (var i = 0; i < gemitems.length; i++) {
 
         if (player.x < allGems[i].x + allGems[i].gemWidth && player.x + player.playerWidth > allGems[i].x && player.y < allGems[i].y + allGems[i].gemHeight && player.playerHeight + player.y > allGems[i].y) {
 
-            //alert("gem has been hit");
-
-
-            console.log("gem collison detected");
-            console.log(gemitems[i].color);
+           // console.log(gemitems[i].color);
+            allGems.splice(i, 1);
+             
             // alert("gem removed" + i)
 
 
@@ -326,11 +341,10 @@ var checkGemCollisions = function() {
         
 
         }
+        console.log(allGems[i].color);
+}
 
 
-
-
-    }
 
 
 
