@@ -4,6 +4,7 @@ var player;
 var gem;
 var score = 0;
 var speed = 0;
+var health = 100;
 var allGems;
  var gemitems;
 
@@ -101,28 +102,33 @@ Player.prototype.hitdetect = function() {
     console.log("playery :" + this.y);
 
 
-    if (this.x < Math.floor(83)) {
+    if (this.x < this.playerWidth) {
 
         console.log("player left side collision");
-        this.x = Math.floor(83) + 20;
+        this.x = 60;
 
     }
 
 
-    if (this.x > 415 - Math.floor(83/2)) {
+
+
+
+    if (this.x > 415 - this.playerWidth) {
         console.log("player side collison x direction right ");
-        this.x = 415 - Math.floor(83/2) - 50;
+        this.x = 415 - 40;
     }
 
 
-
-    if (this.y < 101 + 20) {
-        this.y = 101 + 40;
+/*
+    if (this.y < 50) {
+        this.y = 50;
         console.log("hit detection for y top");
     }
+*/
 
-    if (this.y > 450) {
-      this.y = 450;
+
+    if (this.y > 440) {
+      this.y = 440;
       console.log("hit detection for y bottom")
     }
 
@@ -245,19 +251,19 @@ Player.prototype.handleInput = function(keys) {
 
         case 'left':
         player.hitdetect();
-            this.x = (this.x - 83);
+            this.x = (this.x - 40);
             break;
         case 'up':
           player.hitdetect();
-            this.y = this.y - 101;
+            this.y = this.y - 50;
             break;
         case 'right':
           player.hitdetect();
-            this.x = this.x + 101;
+            this.x = this.x + 40;
             break;
         case 'down':
           player.hitdetect();
-            this.y = this.y + 40;
+            this.y = this.y + 50 ;
             break;
     }
 
@@ -329,7 +335,7 @@ var checkGemCollisions = function() {
 }
 
 var gemlogic = function() {
- for (var i = 0; i < gemitems.length; i++) {
+ for (var i = 0; i < allGems.length; i++) {
 
         if (player.x < allGems[i].x + allGems[i].gemWidth && player.x + player.playerWidth > allGems[i].x && player.y < allGems[i].y + allGems[i].gemHeight && player.playerHeight + player.y > allGems[i].y) {
 
@@ -338,13 +344,15 @@ var gemlogic = function() {
              
             // alert("gem removed" + i)
 
+            score +=100;
+
 
 
         
         
 
         }
-        console.log(allGems[i].color);
+       // console.log(allGems[i].color);
 }
 
 
@@ -388,7 +396,7 @@ Player.prototype.scoreUpdate = function() {
     ctx.fillText("Lives score" + 20, 200, 30);
     ctx.clearRect(200, 200, 300, 200);
     ctx.fillText("Lives score" + 20, 200, 30);
-    ctx.fillText("Health" + 20, 400, 30);
+    ctx.fillText("Health" + health, 400, 30);
 
 }
 

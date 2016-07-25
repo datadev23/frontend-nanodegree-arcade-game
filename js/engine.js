@@ -181,7 +181,7 @@ var Engine = (function(global) {
         then call the render function. 
         */
         player.render();
-        gem.render();
+      //  gem.render();
         //   items.render();
 
     }
