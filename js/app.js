@@ -399,16 +399,12 @@ var gameState = function() {
  
 
 
-    if (win === true)
-
-    {
+    if (win === true)  {
 
         ctx.font = "20px Ariel";
         ctx.strokeText("Player score  " + this.getScore(), 20, 30);
 
-    } else
-
-    {
+    } else  {
         ctx.font = "20px Ariel";
         ctx.strokeText("Player score  " + this.getScore(), 20, 30);
     }
