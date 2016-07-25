@@ -110,29 +110,30 @@ Player.prototype.hitdetect = function() {
 
 
     if (this.x > 415 - Math.floor(83/2)) {
-        console.log("player side collison x direction ");
+        console.log("player side collison x direction right ");
         this.x = 415 - Math.floor(83/2) - 50;
     }
 
 
 
-    if (this.y < 0) {
-        this.y = 0;
+    if (this.y < 101 + 20) {
+        this.y = 101 + 40;
         console.log("hit detection for y top");
     }
 
-    if (this.y >= canvas.height - this.playerHeight - 20) {
-        this.y = canvas.height - this.playerHeight - 20;
-        console.log("hit detection for y top");
+    if (this.y > 450) {
+      this.y = 450;
+      console.log("hit detection for y bottom")
     }
 
 
+/*
     if ((this.x > 0 && this.x < 420) && (this.y > 10 && this.y < 70)) {
 
         alert("You win the game");
         this.resetGame();
     }
-
+*/
 
 
 
@@ -222,7 +223,7 @@ allGems = [];
 // create array of object instances
 var allItems = [];
 
-player = new Player(124, 500);
+player = new Player(124, 450);
 gem = new Gems(10, 200, "green");
 var gem2 = new Gems(200, 100, "orange");
 var gem3 = new Gems(300, 200, "blue");
@@ -269,7 +270,7 @@ Player.prototype.resetGame = function() {
 
     player.scoreUpdate();
 
-player = new Player(300, 500);
+player = new Player(124, 450);
 gem = new Gems(10, 200, "green");
 gem2 = new Gems(200, 100, "orange");
 gem3 = new Gems(300, 200, "blue");
