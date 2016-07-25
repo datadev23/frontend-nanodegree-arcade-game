@@ -127,13 +127,13 @@ Player.prototype.hitdetect = function() {
     }
 
 
-/*
+
     if ((this.x > 0 && this.x < 420) && (this.y > 10 && this.y < 70)) {
 
         alert("You win the game");
         this.resetGame();
     }
-*/
+
 
 
 
