@@ -101,15 +101,17 @@ Player.prototype.hitdetect = function() {
     console.log("playery :" + this.y);
 
 
-    if (this.x < 0) {
+    if (this.x < Math.floor(83)) {
 
-        console.log("player and side collision x direction");
-        this.x = 0;
+        console.log("player left side collision");
+        this.x = Math.floor(83) + 20;
+
     }
 
-    if (this.x > canvas.width - this.playerWidth) {
+
+    if (this.x > 415 - Math.floor(83/2)) {
         console.log("player side collison x direction ");
-        this.x = canvas.width - this.playerWidth;
+        this.x = 415 - Math.floor(83/2) - 50;
     }
 
 
@@ -220,7 +222,7 @@ allGems = [];
 // create array of object instances
 var allItems = [];
 
-player = new Player(300, 500);
+player = new Player(124, 500);
 gem = new Gems(10, 200, "green");
 var gem2 = new Gems(200, 100, "orange");
 var gem3 = new Gems(300, 200, "blue");
@@ -242,19 +244,19 @@ Player.prototype.handleInput = function(keys) {
 
         case 'left':
         player.hitdetect();
-            this.x = (this.x - 10);
+            this.x = (this.x - 83);
             break;
         case 'up':
           player.hitdetect();
-            this.y = this.y - 10;
+            this.y = this.y - 101;
             break;
         case 'right':
           player.hitdetect();
-            this.x = this.x + 10;
+            this.x = this.x + 101;
             break;
         case 'down':
           player.hitdetect();
-            this.y = this.y + 10;
+            this.y = this.y + 40;
             break;
     }
 
