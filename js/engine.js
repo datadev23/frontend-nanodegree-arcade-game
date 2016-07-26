@@ -86,6 +86,7 @@ var Engine = (function(global) {
         updateEntities(dt);
         checkCollisions();
        gemlogic();
+       itemlogic();
         player.scoreUpdate();
     }
 
@@ -170,12 +171,12 @@ var Engine = (function(global) {
         });
 
 
-        /*
+      
 
             allItems.forEach(function(items) {
             items.render();
         });
-*/
+
         /*
         Loop through all the objects within the gem allgems array and 
         then call the render function. 

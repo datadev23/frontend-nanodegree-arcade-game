@@ -7,6 +7,8 @@ var speed = 0;
 var health = 100;
 var allGems;
  var gemitems;
+ var allItems;
+ var itemsArray;
 
 
 // Enemy object
@@ -227,7 +229,7 @@ var allEnemies = [];
 // create an array to store the gems
 allGems = [];
 // create array of object instances
-var allItems = [];
+allItems = [];
 
 player = new Player(124, 450);
 gem = new Gems(10, 200, "green");
@@ -236,6 +238,7 @@ var gem3 = new Gems(300, 200, "blue");
 var myenemy = new Enemy(20, 150, 1);
 var myenemy2 = new Enemy(20, 250, 1);
 var myenemy3 = new Enemy(20, 350, 1);
+var key = new Items(300,400, "key");
 
 
 
@@ -360,6 +363,30 @@ var gemlogic = function() {
 
 
 }
+
+var itemlogic = function() {
+
+itemsArray = [key];
+
+    for (var i = 0; i < itemsArray.length; i++) {
+        
+      
+        allItems.push(itemsArray[i]);
+        //console.log(gemitems[i].color);
+        //console.log(gemitems[i]);
+    
+
+
+
+    }
+
+
+
+}
+
+
+
+
 
 var checkCollisions = function() {
 
