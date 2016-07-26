@@ -197,6 +197,7 @@ Gems.prototype.render = function(x, y) {
 
 var Items = function(x, y, item) {
 
+this.item = item;
     switch (item) {
         case "key":
             this.sprite = 'images/key.png';
@@ -207,6 +208,9 @@ var Items = function(x, y, item) {
 
 
     }
+
+    this.itemWidth = 60;
+        this.itemHeight = 67;
 
     this.x = x;
     this.y = y;
@@ -325,7 +329,7 @@ var checkGemCollisions = function() {
         
       
         allGems.push(gemitems[i]);
-        //console.log(gemitems[i].color);
+        console.log(gemitems[i].color);
         //console.log(gemitems[i]);
     
 
@@ -372,10 +376,37 @@ itemsArray = [key];
         
       
         allItems.push(itemsArray[i]);
-        //console.log(gemitems[i].color);
+       console.log(itemsArray[i].item);
         //console.log(gemitems[i]);
     
 
+
+
+    }
+
+
+
+}
+
+var itemCollision = function() {
+
+    for(var i = 0; i < allItems.length; i++) {
+
+              if (player.x < allItems[i].x + allItems[i].itemWidth  && player.x + player.playerWidth > allItems[i].x && player.y < allItems[i].y + allItems[i].itemHeight && player.playerHeight + player.y > allItems[i].y) {
+
+           // console.log(gemitems[i].color);
+            allItems.splice(i, 1);
+            alert("key hit");
+            // alert("gem removed" + i)
+
+            score +=100;
+
+
+
+        
+        
+
+        }
 
 
     }

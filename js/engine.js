@@ -62,6 +62,7 @@ var Engine = (function(global) {
     }
 
      checkGemCollisions();
+     itemlogic();
 
     /* This function does some initial setup that should only occur once,
      * particularly setting the lastTime variable that is required for the
@@ -86,7 +87,8 @@ var Engine = (function(global) {
         updateEntities(dt);
         checkCollisions();
        gemlogic();
-       itemlogic();
+       
+       itemCollision();
         player.scoreUpdate();
     }
 
