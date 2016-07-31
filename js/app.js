@@ -121,12 +121,12 @@ Player.prototype.hitdetect = function() {
     }
 
 
-/*
+
     if (this.y < 50) {
         this.y = 50;
         console.log("hit detection for y top");
     }
-*/
+
 
 
     if (this.y > 440) {
